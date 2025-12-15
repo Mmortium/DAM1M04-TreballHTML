@@ -1,0 +1,71 @@
+/*base*/
+:root {
+  --bg-main: #040712;
+  --bg-panel: #0a101e;
+  --accent-1: #00f0ff;
+  --accent-2: #ff00ff;
+  --accent-3: #ff0044;
+  --text-main: #f5f5f5;
+  --text-muted: #a3b0c0;
+  --radius: 12px;
+}
+
+/* Reset bàsic */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: radial-gradient(circle at top, #06152a, #040712);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Elements globals */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent-1);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-2);
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Orbitron', sans-serif;
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+main {
+  padding: 1.5rem clamp(1rem, 3vw, 4rem);
+}
+
+/* Accessibilitat bàsica */
+:focus {
+  outline: 2px solid var(--accent-1);
+  outline-offset: 2px;
+}

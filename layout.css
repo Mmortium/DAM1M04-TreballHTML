@@ -1,0 +1,186 @@
+/*header,footer,main*/
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem clamp(1rem, 3vw, 3rem);
+  background: rgba(4, 7, 18, 0.95);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--accent-1);
+}
+
+.game-title {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-size: 0.9rem;
+}
+
+/* NAV */
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  transition: width 0.2s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+/* FOOTER */
+
+.site-footer {
+  padding: 0.8rem clamp(1rem, 3vw, 3rem);
+  background: rgba(4, 7, 18, 0.95);
+  border-top: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.social-icons .material-icons {
+  font-size: 20px;
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icons .material-icons:hover {
+  color: var(--accent-1);
+  transform: translateY(-2px);
+}
+
+/* PÀGINES ESPECÍFIQUES */
+
+.page-instruccions .instruccions-steps,
+.page-historia .historia-blocs,
+.page-contacte .contact-info,
+.page-about .equip {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Contacte layout */
+
+.page-contacte .contact-info {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.page-contacte h1 {
+  max-width: 1000px;
+  margin: 0 auto 1.5rem;
+}
+
+/* About layout */
+
+.page-about .equip {
+  margin-bottom: 2.5rem;
+}
+
+/* Video wrapper per fer el vídeo responsive */
+
+.video-demo {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.2);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsiu */
+
+@media (max-width: 900px) {
+  .page-contacte .contact-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+
+  .footer-right {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  main {
+    padding: 1.2rem 1rem;
+  }
+}

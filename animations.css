@@ -1,75 +1,83 @@
 /*scroll, SVG*/
 
 .scroll-animate {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp 1s ease forwards;
+  opacity: 0;                               /* Comienza invisible */
+  transform: translateY(40px);              /* Desplazada hacia abajo */
+  animation: fadeInUp 1s ease forwards;     /* Animación base: aparece subiendo */
   /* Scroll-driven animation */
-  animation-timeline: view();
-  animation-range: entry 20% cover 40%;
+  animation-timeline: view();               /* Activa animación según posición en viewport */
+  animation-range: entry 20% cover 40%;     /* Empieza al entrar 20% y termina al cubrir 40% */
 }
 
 @keyframes fadeInUp {
   from {
-    opacity: 0;
-    transform: translateY(40px);
+    opacity: 0;                             /* Invisible */
+    transform: translateY(40px);            /* Más abajo */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1;                             /* Totalmente visible */
+    transform: translateY(0);               /* En su posición final */
   }
 }
 
 .game-title {
   animation: neonPulse 3s ease-in-out infinite alternate;
+  /* Pulso suave infinito entre dos estados de brillo */
 }
-
 @keyframes neonPulse {
   from {
-    text-shadow: 0 0 6px rgba(0, 240, 255, 0.4),
-                 0 0 12px rgba(0, 240, 255, 0.2);
+    text-shadow: 
+      0 0 6px rgba(0, 240, 255, 0.4),       /* Brillo cian suave */
+      0 0 12px rgba(0, 240, 255, 0.2);
   }
   to {
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.8),
-                 0 0 20px rgba(255, 0, 255, 0.6);
+    text-shadow:
+      0 0 10px rgba(0, 240, 255, 0.8),      /* Brillo más intenso */
+      0 0 20px rgba(255, 0, 255, 0.6);      /* Añade magenta para efecto futurista */
   }
 }
 
 /* Animació línia SVG */
 
 .city-pulse .pulse-line {
-  fill: none;
-  stroke: url(#neonGradient);
-  stroke-width: 3;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
+  fill: none;                               /* Sin relleno */
+  stroke: url(#neonGradient);               /* Trazo con gradiente definido en el SVG */
+  stroke-width: 3;                          /* Grosor del trazo */
+  stroke-linejoin: round;                   /* Uniones redondeadas */
+  stroke-linecap: round;                    /* Extremos redondeados */
+  stroke-dasharray: 500;                    /* Longitud total del trazo segmentado */
+  stroke-dashoffset: 500;                   /* Oculta completamente la línea */
   animation: pulseLine 3s ease-in-out infinite alternate;
+  /* Hace que la línea se “dibuje” y “desdibuje” */
 }
 
 @keyframes pulseLine {
   to {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 0;                   /* Reduce el offset → la línea aparece */
   }
 }
 
 /* Ombra que es mou darrere del header */
 .site-header::before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  width: 180px;
+  content: "";                              /* Pseudo-elemento vacío */
+  position: absolute;                       /* Se posiciona sobre el header */
+  top: -20px;                               /* Un poco por encima */
+  left: 50%;                                 /* Centrado horizontalmente */
+  width: 180px;                             /* Tamaño de la sombra */
   height: 60px;
-  background: radial-gradient(ellipse, rgba(0,0,0,0.35), transparent 70%);
-  transform: translateX(-50%);
-  filter: blur(12px);
+  background: radial-gradient(
+    ellipse,
+    rgba(0,0,0,0.35),
+    transparent 70%
+  );                                        /* Sombra suave en forma elíptica */
+  transform: translateX(-50%);              /* Centrado real */
+  filter: blur(12px);                       /* Difumina la sombra */
   animation: shadowDrift 14s ease-in-out infinite alternate;
+  /* Movimiento lento, como una sombra flotando bajo el agua */
 }
 
 @keyframes shadowDrift {
-  0% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-45%) translateY(6px); }
-  100% { transform: translateX(-50%) translateY(-4px); }
+  0%   { transform: translateX(-50%) translateY(0); }   /* Posición inicial */
+  50%  { transform: translateX(-45%) translateY(6px); } /* Se desplaza ligeramente */
+  100% { transform: translateX(-50%) translateY(-4px);} /* Vuelve hacia arriba */
 }

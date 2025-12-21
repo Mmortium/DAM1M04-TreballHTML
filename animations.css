@@ -20,6 +20,21 @@
   }
 }
 
+.game-title {
+  animation: neonPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow: 0 0 6px rgba(0, 240, 255, 0.4),
+                 0 0 12px rgba(0, 240, 255, 0.2);
+  }
+  to {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.8),
+                 0 0 20px rgba(255, 0, 255, 0.6);
+  }
+}
+
 /* Animació línia SVG */
 
 .city-pulse .pulse-line {
@@ -37,4 +52,24 @@
   to {
     stroke-dashoffset: 0;
   }
+}
+
+/* Ombra que es mou darrere del header */
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 180px;
+  height: 60px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.35), transparent 70%);
+  transform: translateX(-50%);
+  filter: blur(12px);
+  animation: shadowDrift 14s ease-in-out infinite alternate;
+}
+
+@keyframes shadowDrift {
+  0% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-45%) translateY(6px); }
+  100% { transform: translateX(-50%) translateY(-4px); }
 }

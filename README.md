@@ -1,1 +1,1 @@
-treballHTML fet per Diego E. Aguilar i Miguel Ortiz de AMS1
+treballHTML fet per Miguel Ortiz de AMS1
